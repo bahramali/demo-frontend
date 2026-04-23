@@ -76,8 +76,8 @@ async function handleSubmit() {
       throw new Error(data?.message || `Request failed with status ${response.status}`)
     }
 
-    receivedName.textContent = data.receivedName
-    receivedPersonnelNumber.textContent = data.receivedPersonnelNumber
+    receivedName.innerHTML = data.receivedName
+    receivedPersonnelNumber.innerHTML = data.receivedPersonnelNumber
     successMessage.hidden = false
     setStatus('success', 'Request completed.')
   } catch (error) {
