@@ -4,9 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demo Frontend</title>
+    <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <main class="container">
+      <h1>Demo Frontend</h1>
+      <p class="note">Simple request/response demo against the backend API.</p>
+
+      <div class="form">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" value="Mustafa" />
+
+        <label for="personnelNumber">Personnel Number</label>
+        <input id="personnelNumber" name="personnelNumber" type="text" value="12345" />
+        <p id="validationError" class="error" hidden>Personnel number must contain digits only.</p>
+
+        <button id="submitButton" type="button">Send Request</button>
+      </div>
+
+      <section class="status" aria-live="polite">
+        <h2 id="statusTitle">Status: idle</h2>
+        <p id="statusText">No request sent yet.</p>
+        <p id="successMessage" hidden>
+          Your name <span id="receivedName" class="highlight-value"></span> and your personal number
+          <span id="receivedPersonnelNumber" class="highlight-value"></span> are registered.
+        </p>
+        <p id="errorMessage" class="error" hidden></p>
+      </section>
+    </main>
+
+    <script>
+      window.APP_CONFIG = window.APP_CONFIG || {
+        API_BASE_URL: '__API_BASE_URL__'
+      }
+    </script>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
