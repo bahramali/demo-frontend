@@ -102,7 +102,7 @@ function App() {
         {status === 'error' && <p className="error">Error: {error}</p>}
         {status === 'success' && (
             <p>
-              Welcome, <span className="highlight-value">{responseData?.receivedName}</span> with personal number <span className="highlight-value">{responseData?.receivedPersonnelNumber}</span>
+              Your name <span className="highlight-value">{responseData?.receivedName}</span> and your personal number <span className="highlight-value">{responseData?.receivedPersonnelNumber}</span> are registered.
             </p>
         )}
       </section>
