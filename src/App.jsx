@@ -73,6 +73,7 @@ function App() {
         <label>
           Personnel Number
           <input
+            type="number"
             value={personnelNumber}
             onChange={(event) => setPersonnelNumber(event.target.value)}
           />
@@ -89,7 +90,14 @@ function App() {
         {status === 'idle' && <p>No request sent yet.</p>}
         {status === 'loading' && <p>Sending request to backend...</p>}
         {status === 'error' && <p className="error">Error: {error}</p>}
-        {status === 'success' && <pre>{JSON.stringify(responseData, null, 2)}</pre>}
+        {status === 'success' && (
+          <>
+            <p>
+              Welcome, {responseData?.name} with personal number {responseData?.personnelNumber}
+            </p>
+            <pre>{JSON.stringify(responseData, null, 2)}</pre>
+          </>
+        )}
       </section>
     </main>
   )
