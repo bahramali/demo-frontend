@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+const personnelNumberRegex = /^\d+$/
 
 function App() {
   const [name, setName] = useState('Mustafa')
@@ -8,6 +9,8 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [responseData, setResponseData] = useState(null)
+
+  const isValidPersonnelNumber = personnelNumberRegex.test(personnelNumber)
 
   const requestUrl = useMemo(() => {
     if (!API_BASE_URL) {
@@ -26,6 +29,10 @@ function App() {
         : 'idle'
 
   const handleSubmit = async () => {
+    if (!isValidPersonnelNumber) {
+      return
+    }
+
     if (!requestUrl) {
       setError('Missing VITE_API_BASE_URL. Please set it in your .env file.')
       setResponseData(null)
@@ -73,13 +80,16 @@ function App() {
         <label>
           Personnel Number
           <input
-            type="number"
+            type="text"
             value={personnelNumber}
             onChange={(event) => setPersonnelNumber(event.target.value)}
           />
+          {!isValidPersonnelNumber && personnelNumber && (
+            <p className="error">Personnel number must be a valid number</p>
+          )}
         </label>
 
-        <button onClick={handleSubmit} disabled={loading}>
+        <button onClick={handleSubmit} disabled={!isValidPersonnelNumber || loading}>
           {loading ? 'Sending...' : 'Send Request'}
         </button>
       </div>
