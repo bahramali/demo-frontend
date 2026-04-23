@@ -10,13 +10,7 @@ Small React + Vite demo page that sends a POST request to a backend and renders 
    npm install
    ```
 
-2. Create env file and set backend URL:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-3. Start development server:
+2. Start development server:
 
    ```bash
    npm run dev
