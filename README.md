@@ -1,6 +1,10 @@
 # Demo Frontend
 
-Small React + Vite demo page that sends a POST request to a backend and renders the JSON response.
+Small plain HTML + JavaScript demo page that sends a POST request to a backend API.
+
+## Configure API base URL
+
+Set `window.APP_CONFIG.API_BASE_URL` in `index.html` (or replace the `__API_BASE_URL__` placeholder during deploy).
 
 ## Run locally
 
@@ -16,4 +20,18 @@ Small React + Vite demo page that sends a POST request to a backend and renders 
    npm run dev
    ```
 
-The app will call `${VITE_API_BASE_URL}/api/demo`.
+The app sends requests to `${API_BASE_URL}/api/demo`.
+
+## Build and deploy
+
+1. Build static files:
+
+   ```bash
+   npm run build
+   ```
+
+2. Deploy `dist` to GitHub Pages:
+
+   ```bash
+   npm run deploy
+   ```
