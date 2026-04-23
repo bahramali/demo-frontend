@@ -93,7 +93,7 @@ function App() {
         {status === 'success' && (
           <>
             <p>
-              Welcome, {responseData?.name} with personal number {responseData?.personnelNumber}
+              Welcome, {responseData?.receivedName} with personal number {responseData?.receivedPersonnelNumber}
             </p>
             <pre>{JSON.stringify(responseData, null, 2)}</pre>
           </>
