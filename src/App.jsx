@@ -101,12 +101,10 @@ function App() {
         {status === 'loading' && <p>Sending request to backend...</p>}
         {status === 'error' && <p className="error">Error: {error}</p>}
         {status === 'success' && (
-          <>
-            <p>
-              Welcome, {responseData?.receivedName} with personal number {responseData?.receivedPersonnelNumber}
-            </p>
-            <pre>{JSON.stringify(responseData, null, 2)}</pre>
-          </>
+          <p>
+            Welcome, <span className="highlight-value">{responseData?.receivedName}</span> with personal number{' '}
+            <span className="highlight-value">{responseData?.receivedPersonnelNumber}</span>
+          </p>
         )}
       </section>
     </main>
